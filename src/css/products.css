@@ -1,0 +1,267 @@
+/* ===================== RESET BÁSICO ===================== */
+/* Quitamos márgenes y espacios que el navegador pone por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Hace que los tamaños sean más fáciles de manejar */
+    font-family: Arial, sans-serif;
+}
+
+
+/* ===================== BODY ===================== */
+body {
+    background-color: #f5f7fa; /* Color de fondo gris claro */
+}
+
+
+/* ===================== HEADER ===================== */
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 28px;
+    color: aliceblue;
+}
+
+/* ===================== MENÚ DE CATEGORÍAS ===================== */
+.menu-categorias {
+    display: flex; /* Coloca los botones en fila */
+    justify-content: center;
+    gap: 15px; /* Espacio entre botones */
+    margin: 20px;
+}
+
+/* Estilo de los botones */
+.menu-categorias button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px; /* Hace los botones redondeados */
+    cursor: pointer;
+
+    /* sombra suave */
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+}
+
+/* Hover */
+.menu-categorias button:hover {
+    background-color:azure; /* Cambia el fondo al pasar el mouse */
+    color: black; /* Cambia el texto al pasar el mouse */
+}
+
+/* ===================== SECCIÓN PRODUCTOS ===================== */
+section {
+    width: 90%;
+    margin: 20px auto;
+
+    /* GRID: organiza los productos en columnas */
+    display: grid;
+
+    /* 4 columnas iguales */
+    grid-template-columns: repeat(4, 1fr);
+
+    /* Espacio entre productos */
+    gap: 20px;
+}
+
+
+/* ===================== TARJETAS ===================== */
+/* Cada div dentro de section será una tarjeta */
+section div {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+
+    /* Sombra suave */
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+
+    text-align: center;
+
+    /* Animación suave */
+    transition: transform 0.2s;
+}
+
+/* Efecto cuando pasas el mouse */
+section div:hover {
+    transform: scale(1.05);
+}
+
+
+/* ===================== IMÁGENES ===================== */
+section img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Hace que la imagen no se deforme */
+    border-radius: 8px;
+}
+
+
+/* ===================== TEXTO ===================== */
+section h3 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+section p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+
+/* ===================== BOTÓN ===================== */
+button {
+    background-color: #2f4f6f; /* azul oscuro */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover del botón */
+button:hover {
+    background-color: #1e3550;
+}
+
+
+/* ===================== FOOTER ===================== */
+footer {
+    background-color: #cfd8e3;
+    padding: 30px;
+    margin-top: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+footer h4 {
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+/* ===================== FONDO CON IMAGEN ===================== */
+body {
+    background-image: url("../assets/fondo.png"); /* Ruta de tu imagen de fondo */
+    /* Imagen de fondo */
+
+    background-size: cover; /* Hace que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+
+    /* Opcional: oscurecer un poco para que se vea mejor el contenido */
+}
+
+/* Para que las tarjetas sigan viéndose bien */
+section div {
+    background-color: rgba(255, 255, 255, 0.9); /* blanco con transparencia */
+}
+
+/* ===================== BOTÓN ACTIVO ===================== */
+.menu-categorias button.activo {
+    background-color:white; /* Color verde para el botón activo */
+    color: black; /* Color del texto para el botón activo */
+}
+/* ===================== Carrito  ===================== */
+.btn-ver-carrito {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #2f4f6f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* ===================== CONTENEDOR GENERAL ===================== */
+body {
+    font-family: Arial, sans-serif;
+}
+#calo {
+    color: aliceblue;
+}
+
+/* ===================== CAJA DEL CARRITO ===================== */
+#lista-carrito {
+    background-color: rgba(255, 255, 255, 0.9); /* fondo blanco transparente */
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+}
+
+/* ===================== CADA PRODUCTO ===================== */
+#lista-carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #f5f5f5;
+    margin: 10px 0;
+    padding: 10px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+/* ===================== BOTÓN ELIMINAR ===================== */
+#lista-carrito button {
+    background-color: #2f4f6f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover eliminar */
+#lista-carrito button:hover {
+    background-color: red;
+}
+
+/* ===================== TOTAL ===================== */
+#total {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+
+    background-color: rgba(255,255,255,0.9);
+    padding: 10px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* ===================== BOTÓN VACIAR ===================== */
+#vaciar-carrito {
+    margin-top: 15px;
+    padding: 10px 15px;
+
+    background-color: #2f4f6f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#vaciar-carrito:hover {
+    background-color: red;
+}
+
+/* ===================== LINK VOLVER ===================== */
+a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #2f4f6f;
+    font-weight: bold;
+}
