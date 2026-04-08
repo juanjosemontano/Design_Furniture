@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    background-image: url(/src/assets/background_contact.jpg);
+    background-position: center;
+    background-size: cover;    
+}
+
+/* Título */
+.container_title {
+    width: 100vw;
+    height: 120px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*  Barra "Redes Sociales" */
+.redes_sociales {
+    color: white;
+    background-color: grey;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 140%;
+}
+
+/*  Contenedor de iconos  */
+.container_redes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    margin-bottom: 180px;
+
+}
+
+/*  Cada ícono con su texto  */
+.container_redes li {
+    list-style: none;
+    display: inline-flex;
+    flex-direction: column;   
+    align-items: center;
+    cursor: pointer;
+    margin: 40px 30px;        
+}
+
+/* Círculo alrededor del ícono 
+   Cambia height y width para agrandar o achicar el círculo */
+.icon-circle {
+    border-radius: 50%;
+    height: 85px;             
+    width: 85px;              
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    transition-delay: 0.2s;
+}
+
+
+    
+.icon {
+    width: 75px;              
+    height: 75px;             
+    transition: 0.6s;
+}
+
+/* ── Texto debajo del ícono 
+    Cambia font-size para agrandar o achicar el texto */
+.container_redes li span {
+    margin-top: 12px;         
+    font-size: 20px;          
+    color: black;
+    text-align: center;
+}
+
+/* ── Colores de borde por red social ── */
+.whatsapp  .icon-circle { border: 2px solid white; }
+.instagram .icon-circle { border: 2px solid white; }
+.facebook  .icon-circle { border: 2px solid white; }
+.twitter   .icon-circle { border: 2px solid white; }
+
+/* ── Animación de rotación al hacer hover ── */
+.whatsapp:hover  .icon { transform: rotateY(360deg); }
+.instagram:hover .icon { transform: rotateY(360deg); }
+.facebook:hover  .icon { transform: rotateY(360deg); }
+.twitter:hover   .icon { transform: rotateY(360deg); }
+
+/* ── Brillo de borde al hacer hover ── */
+.whatsapp:hover  .icon-circle { box-shadow: 0px 0px 7px white inset, 0px 0px 7px white; }
+.instagram:hover .icon-circle { box-shadow: 0px 0px 7px white inset, 0px 0px 7px white; }
+.facebook:hover  .icon-circle { box-shadow: 0px 0px 7px white inset, 0px 0px 7px white; }
+.twitter:hover   .icon-circle { box-shadow: 0px 0px 7px white inset, 0px 0px 7px white; }
+
+.container_redes li {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.container_redes li.activo {
+    transform: scale(1.1);
+}
