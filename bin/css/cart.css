@@ -20,6 +20,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Cinzel', serif;
 }
 
 .container_shop {
@@ -32,6 +33,7 @@ body {
     justify-content: center;
     font-size: 115%;
     cursor: pointer;
+    font-family: 'Cinzel', serif;
 }
 
 .product_page {
@@ -42,10 +44,19 @@ body {
                 0px 0px 10px #ffffff inset;
     border: 0.5px solid #ffffff;
     height: 460px;
-    width: 900px;    
+    width: 900px;
+
+    /* ✅ NUEVO: para mostrar las tarjetas de productos */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    align-content: flex-start;
 }
 
 .shop_product {
+    color: white;
     box-shadow: 0px 0px 10px #FFFFFF,
                 0px 0px 10px #ffffff inset;
     border: 0.5px solid #ffffff;
@@ -54,17 +65,17 @@ body {
     top: 150px;
     height: 460px;
     width: 380px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* ✅ corregido */
     padding: 15px;
     margin-top: 20px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    font-family: 'Cinzel', serif;
 
-    /* ✅ Organiza los hijos en columna */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* espacio entre cada sección */
+    gap: 15px;
 }
 
 /* Título */
@@ -116,8 +127,8 @@ body {
 /* ===== BOTÓN NEÓN ===== */
 .btn-neon {
     position: relative;
-    background: white (0, 0, 0, 0.8);
-    color: white (0, 0, 0, 0.8);
+    background: #fff;
+    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -139,8 +150,7 @@ body {
     content: '';
     position: absolute;
     inset: 2px;
-    background: white
-    (0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5); /* ✅ corregido */
 }
 
 .btn-neon span {
@@ -161,8 +171,7 @@ body {
     left: 80%;
     width: 10px;
     height: 4px;
-    background: white
-    (0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5); /* ✅ corregido */
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
 }
@@ -179,8 +188,7 @@ body {
     left: 20%;
     width: 10px;
     height: 4px;
-    background: white
-    (0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5); /* ✅ corregido */
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
 }
@@ -202,4 +210,50 @@ body {
     border-left: 3px solid white;
     color: white;
     font-weight: 600;
+}
+
+/* ===== NUEVO: TARJETAS DE PRODUCTOS EN EL CARRITO ===== */
+.tarjeta_producto {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    width: 150px;
+    font-family: 'Cinzel', serif;
+    flex-shrink: 0;
+}
+
+.tarjeta_producto img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.tarjeta_producto h3 {
+    font-size: 0.75rem;
+    margin: 8px 0 4px;
+}
+
+.tarjeta_producto p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-eliminar {
+    margin-top: 8px;
+    background: rgba(255, 50, 50, 0.3);
+    color: white;
+    border: 1px solid red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+    background: rgba(255, 50, 50, 0.6);
 }

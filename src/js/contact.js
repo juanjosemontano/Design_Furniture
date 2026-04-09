@@ -21,22 +21,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3. Abrir red social + mostrar mensaje
     whatsapp.addEventListener('click', function() {
         mensaje.textContent = ' Abriendo WhatsApp...';
-        window.open('https://wa.me/TU_NUMERO', '_blank');
+        window.open('https://wa.me/3106353135', '_blank');
     });
 
     instagram.addEventListener('click', function() {
         mensaje.textContent = ' Abriendo Instagram...';
-        window.open('https://instagram.com/TU_USUARIO', '_blank');
+        window.open('https://www.instagram.com/mueblesconcorde?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank');
     });
 
     facebook.addEventListener('click', function() {
         mensaje.textContent = ' Abriendo Facebook...';
-        window.open('https://facebook.com/TU_PAGINA', '_blank');
+        window.open('https://www.facebook.com/share/1DaLn6NCoE/?mibextid=wwXIfr', '_blank');
     });
 
     twitter.addEventListener('click', function() {
         mensaje.textContent = ' Abriendo X...';
-        window.open('https://x.com/TU_USUARIO', '_blank');
+        window.open('https://x.com/muebleskatra?s=21', '_blank');
     });
 
 });

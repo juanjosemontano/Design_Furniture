@@ -58,33 +58,36 @@ botonesCarrito.forEach(function(boton) {
 
     boton.addEventListener('click', function() {
 
-        // Obtener el contenedor del producto
         const producto = boton.parentElement;
 
-        // Obtener datos del HTML
         const nombre = producto.getAttribute('data-nombre');
         const precio = producto.getAttribute('data-precio');
+        const imagen = producto.querySelector('img').getAttribute('src'); // ✅ nuevo
 
-        // Crear objeto producto
         const productoCarrito = {
             nombre: nombre,
-            precio: precio
+            precio: precio,
+            imagen: imagen // ✅ nuevo
         };
 
-        // Agregar al array
-        carrito.push(productoCarrito);
+        // Verificar si ya existe antes de agregar
+        const yaExiste = carrito.some(function(item) {
+            return item.nombre === nombre;
+        });
 
-        // Guardar en LocalStorage
+        if (yaExiste) {
+            alert(`"${nombre}" ya está en el carrito.`);
+            return;
+        }
+
+        carrito.push(productoCarrito);
         localStorage.setItem('carrito', JSON.stringify(carrito));
 
-        // Cambiar botón visualmente
         boton.textContent = "Agregado ✅";
         boton.disabled = true;
 
         console.log("Carrito actual:", carrito);
-
     });
-
 });
 
 
