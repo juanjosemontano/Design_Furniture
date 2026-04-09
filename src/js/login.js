@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => { // Espera que el HTML este
     if (encontrado) {
         localStorage.setItem('df_sesion', JSON.stringify(encontrado));
 
-        window.location.href = '/src/HTML'
+        window.location.href = '/src/HTML/products.html'
 
     } else {
 
