@@ -19,7 +19,6 @@ body {
   background-color: var(--dark);
 }
 
-/* ── Overlay ── */
 .overlay {
   position: fixed;
   inset: 0;
@@ -28,7 +27,6 @@ body {
   pointer-events: none;
 }
 
-/* ── Nav ── */
 .nav {
   display: flex;
   align-items: center;
@@ -40,8 +38,6 @@ body {
   z-index: 50;
   background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
 }
-
-
 
 .logo-text {
   font-family: 'Cormorant Garamond', serif;
@@ -75,13 +71,11 @@ body {
   opacity: 1;
 }
 
-/* ── Scroll Container ── */
 .scroll-container {
   position: relative;
   min-height: 100vh;
 }
 
-/* ── Hero Wrapper ── */
 .hero-wrapper {
   width: 100%;
   height: 100vh;
@@ -89,7 +83,6 @@ body {
   will-change: transform;
 }
 
-/* ── Hero ── */
 .hero {
   height: 100vh;
   width: 100%;
@@ -102,7 +95,6 @@ body {
   align-items: center;
 }
 
-/* Viñeta sutil sobre la imagen */
 .hero::after {
   content: '';
   position: absolute;
@@ -110,7 +102,6 @@ body {
   background: radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
 }
 
-/* ── Hero Content ── */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -174,7 +165,6 @@ h2 {
   border-color: var(--cream);
 }
 
-/* ── Hero 2 ── */
 .hero-2 {
   position: absolute;
   inset: 0;
@@ -183,12 +173,11 @@ h2 {
   flex-direction: column;
   gap: 1.8rem;
   justify-content: center;
-  align-items: center;         /* centrado horizontal */
-  text-align: center;          /* texto centrado */
+  align-items: center;       
+  text-align: center;          
   padding: 0 2rem;
   opacity: 0;
   color: var(--cream);
-  /* fondo oscuro translúcido para legibilidad */
   background: radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.75) 100%);
 }
 
@@ -225,7 +214,6 @@ h2 {
   margin-top: 8px;
 }
 
-/* ── Divisor decorativo ── */
 .divider {
   display: flex;
   align-items: center;
@@ -248,7 +236,6 @@ h2 {
   opacity: 0.7;
 }
 
-/* ── Scroll Indicator ── */
 .scroll-indicator {
   position: absolute;
   bottom: 8%;

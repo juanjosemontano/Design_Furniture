@@ -1,6 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// ── 1. Animación de entrada ──────────────────────────────────
 gsap.to(".overlay", {
   opacity: 0,
   duration: 2.2,
@@ -17,7 +16,6 @@ gsap.from(".hero-wrapper", {
   ease: "power3.out",
 });
 
-// Entrada escalonada del contenido del hero
 gsap.from(".hero-eyebrow", {
   opacity: 0,
   y: 20,
@@ -42,15 +40,6 @@ gsap.from("h2", {
   ease: "power2.out",
 });
 
-gsap.from(".btn", {
-  opacity: 0,
-  y: 16,
-  duration: 0.9,
-  delay: 2.1,
-  ease: "power2.out",
-});
-
-// Scroll indicator bounce
 const bounceTimeline = gsap.timeline({ repeat: -1, yoyo: true });
 bounceTimeline.to(".scroll-indicator", {
   y: 10,
@@ -60,7 +49,6 @@ bounceTimeline.to(".scroll-indicator", {
   delay: 2.5,
 });
 
-// ── 2. Timeline con scroll ───────────────────────────────────
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".scroll-container",
@@ -71,14 +59,13 @@ const tl = gsap.timeline({
   },
 });
 
-// El hero se reduce a escala normal
 tl.to(".hero-wrapper", { scale: 1, duration: 1 });
 
-// Ocultar scroll indicator
+
 tl.to(".scroll-indicator", { opacity: 0, duration: 0.3 }, "<");
 
-// El contenido del hero desaparece hacia arriba
+
 tl.to(".hero-content", { opacity: 0, y: -40, duration: 0.6 }, "<+=0.3");
 
-// Aparece la segunda sección centrada
+
 tl.to(".hero-2", { opacity: 1, duration: 1.5 }, "<+=0.3");

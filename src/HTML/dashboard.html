@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Las mismas fuentes que usas en login y register -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -14,89 +13,44 @@
 </head>
 <body>
 
-    <!-- ============================================================
-         SIDEBAR
-         Es la barra lateral fija con la navegación.
-         Cada enlace tiene data-vista="..." — el JS lo usa para saber
-         qué sección mostrar cuando el usuario hace clic.
-    ============================================================ -->
     <aside class="sidebar">
 
-        <!-- Nombre de la app -->
         <div class="sidebar-logo">
             <p>Design Furniture</p>
         </div>
 
-        <!-- Links de navegación
-             data-vista es un atributo personalizado.
-             El JS lo leerá para saber qué sección activar. -->
         <nav>
             <a href="#" class="nav-item active" data-vista="vista-dashboard">Dashboard</a>
-            <a href="#" class="nav-item" data-vista="vista-productos">Productos</a>
-            <a href="#" class="nav-item" data-vista="vista-ventas">Ventas</a>
             <a href="#" class="nav-item" data-vista="vista-historial">Historial</a>
             <a href="#" class="nav-item" data-vista="vista-ia">Análisis IA</a>
         </nav>
 
-        <!-- Pie del sidebar: nombre del usuario y botón de salir -->
         <div class="sidebar-footer">
-            <!-- El JS escribe aquí el nombre del usuario logueado -->
             <p id="nombreUsuario">Usuario</p>
             <button class="btn-logout" id="btnLogout">Cerrar sesión</button>
         </div>
 
     </aside>
 
-
-    <!-- ============================================================
-         CONTENIDO PRINCIPAL
-         Aquí viven todas las "páginas" del dashboard.
-         Solo una está visible a la vez (la que tenga clase "activa").
-         El CSS hace: .vista { display: none } y .vista.activa { display: block }
-         El JS cambia la clase activa según el enlace que se clickeó.
-    ============================================================ -->
     <main class="contenido">
 
-
-        <!-- ========================================================
-             VISTA 1: DASHBOARD
-             Muestra las tarjetas de resumen y las últimas ventas.
-             Es la primera que se ve porque tiene clase "activa".
-        ======================================================== -->
         <section class="vista activa" id="vista-dashboard">
-
             <h1>Dashboard</h1>
 
-            <!-- Tarjetas de resumen
-                 Los id son los puntos donde el JS escribe los datos.
-                 Por ejemplo: document.querySelector('#totalVentas').textContent = '$500' -->
             <div class="cards">
-
                 <div class="card">
                     <p class="card-label">Total ventas</p>
-                    <!-- El JS escribe aquí el total calculado -->
                     <p class="card-valor" id="totalVentas">$0</p>
                 </div>
 
                 <div class="card">
-                    <p class="card-label">Productos</p>
-                    <!-- El JS escribe aquí cuántos productos hay -->
-                    <p class="card-valor" id="totalProductos">0</p>
-                </div>
-
-                <div class="card">
                     <p class="card-label">Más vendido</p>
-                    <!-- El JS escribe aquí el nombre del producto más vendido -->
                     <p class="card-valor" id="masVendido">—</p>
                 </div>
-
             </div>
 
             <h2>Últimas ventas</h2>
 
-            <!-- Tabla de las últimas 5 ventas
-                 thead = encabezado fijo
-                 tbody = cuerpo donde el JS inserta las filas dinámicamente -->
             <div class="tabla-wrapper">
                 <table>
                     <thead>
@@ -107,7 +61,6 @@
                             <th>Fecha</th>
                         </tr>
                     </thead>
-                    <!-- El JS busca este id y le agrega filas <tr> con los datos -->
                     <tbody id="tablaUltimasVentas">
                         <tr>
                             <td colspan="4" class="tabla-vacia">Sin ventas registradas</td>
@@ -115,138 +68,9 @@
                     </tbody>
                 </table>
             </div>
-
         </section>
 
-
-        <!-- ========================================================
-             VISTA 2: PRODUCTOS
-             Muestra el formulario para agregar productos
-             y las tarjetas de los productos existentes.
-        ======================================================== -->
-        <section class="vista" id="vista-productos">
-
-            <h1>Productos</h1>
-
-            <!-- Este botón muestra u oculta el formulario de abajo.
-                 El JS escucha el clic en este id. -->
-            <button class="btn-gold" id="btnToggleFormProducto">+ Agregar producto</button>
-
-            <!-- Formulario para agregar un producto nuevo.
-                 Empieza oculto (display:none en el CSS).
-                 El JS lo muestra cuando el usuario clickea el botón de arriba. -->
-            <div class="form-box" id="formProductoWrapper">
-
-                <!-- Aquí aparecen los mensajes de error o éxito.
-                     El JS agrega la clase "error" o "success" para mostrarlo. -->
-                <p class="mensaje" id="msgProducto"></p>
-
-                <div class="form-fila">
-
-                    <div class="form-grupo">
-                        <label>Nombre</label>
-                        <!-- id="prodNombre" → el JS lee este valor con .value -->
-                        <input type="text" id="prodNombre" placeholder="Ej: Sofá moderno">
-                    </div>
-
-                    <div class="form-grupo">
-                        <label>Categoría</label>
-                        <select id="prodCategoria">
-                            <option value="">Selecciona...</option>
-                            <option>Sala</option>
-                            <option>Comedor</option>
-                            <option>Habitación</option>
-                            <option>Oficina</option>
-                            <option>Decoración</option>
-                        </select>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label>Precio ($)</label>
-                        <input type="number" id="prodPrecio" placeholder="0">
-                    </div>
-
-                    <div class="form-grupo">
-                        <label>Stock</label>
-                        <input type="number" id="prodStock" placeholder="0">
-                    </div>
-
-                </div>
-
-                <!-- El JS escucha el clic en este id para guardar el producto -->
-                <button class="btn-gold" id="btnGuardarProducto">Guardar producto</button>
-
-            </div>
-
-            <!-- Aquí el JS pinta las tarjetas de cada producto registrado.
-                 Empieza con el texto "Sin productos" y el JS lo reemplaza. -->
-            <div class="productos-grid" id="gridProductos">
-                <p class="tabla-vacia">Sin productos registrados</p>
-            </div>
-
-        </section>
-
-
-        <!-- ========================================================
-             VISTA 3: VENTAS
-             Formulario para registrar una nueva venta.
-        ======================================================== -->
-        <section class="vista" id="vista-ventas">
-
-            <h1>Registrar Venta</h1>
-
-            <div class="form-box activo">
-
-                <!-- Mensajes de error o éxito al registrar -->
-                <p class="mensaje" id="msgVenta"></p>
-
-                <div class="form-fila">
-
-                    <div class="form-grupo">
-                        <label>Producto</label>
-                        <!-- El JS llena este select con los productos guardados en localStorage -->
-                        <select id="ventaProducto">
-                            <option value="">Selecciona un producto...</option>
-                        </select>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label>Cliente</label>
-                        <input type="text" id="ventaCliente" placeholder="Nombre del cliente">
-                    </div>
-
-                    <div class="form-grupo">
-                        <label>Cantidad</label>
-                        <input type="number" id="ventaCantidad" placeholder="1" min="1">
-                    </div>
-
-                    <div class="form-grupo">
-                        <label>Precio unitario</label>
-                        <!-- readonly: el usuario no puede editarlo.
-                             El JS lo llena automáticamente al elegir el producto. -->
-                        <input type="number" id="ventaPrecio" placeholder="0" readonly>
-                    </div>
-
-                </div>
-
-                <!-- Total calculado en tiempo real.
-                     El JS actualiza el <span> cada vez que cambia la cantidad. -->
-                <p class="total-label">Total: <span id="ventaTotal">$0</span></p>
-
-                <!-- El JS escucha el clic aquí para ejecutar registrarVenta() -->
-                <button class="btn-gold" id="btnRegistrarVenta">Registrar venta</button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================================================
-             VISTA 4: HISTORIAL
-             Tabla con todas las ventas registradas.
-        ======================================================== -->
         <section class="vista" id="vista-historial">
-
             <h1>Historial de ventas</h1>
 
             <div class="tabla-wrapper">
@@ -263,7 +87,6 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <!-- El JS llena este tbody con todas las ventas de localStorage -->
                     <tbody id="tablaHistorial">
                         <tr>
                             <td colspan="8" class="tabla-vacia">Sin ventas registradas</td>
@@ -271,37 +94,22 @@
                     </tbody>
                 </table>
             </div>
-
         </section>
 
-
-        <!-- ========================================================
-             VISTA 5: ANÁLISIS IA
-             Botón que llama a la API de Claude y muestra el resultado.
-        ======================================================== -->
         <section class="vista" id="vista-ia">
-
             <h1>Análisis IA</h1>
 
-            <p class="subtitulo">La IA analiza tus ventas y genera recomendaciones.</p>
+            <p class="subtitulo">La IA analiza las ventas registradas y genera recomendaciones de negocio.</p>
 
-            <!-- El JS escucha el clic aquí para llamar a la API -->
             <button class="btn-gold" id="btnAnalisis">Generar análisis</button>
 
-            <!-- El JS escribe aquí la respuesta de Claude -->
             <div class="ia-panel" id="iaPanel">
                 Presiona el botón para generar el análisis.
             </div>
-
         </section>
-
 
     </main>
 
-    <!-- El script va AL FINAL del body.
-         Así el HTML ya existe cuando el JS intenta encontrar los elementos.
-         Si lo pones en el <head>, el JS corre antes de que exista el HTML
-         y querySelector devuelve null. -->
     <script src="/src/js/dashboard.js"></script>
 
 </body>

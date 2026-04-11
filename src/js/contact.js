@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // para seleccionar los elementos
     const whatsapp = document.querySelector('.whatsapp');
     const instagram = document.querySelector('.instagram');
     const facebook = document.querySelector('.facebook');
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const redes = document.querySelectorAll('.container_redes li');
     const mensaje = document.getElementById('mensaje_contacto');
 
-    // Efecto visual al pasar el mouse
     redes.forEach(function(red) {
         red.addEventListener('mouseenter', function() {
             red.classList.add('activo');
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 3. Abrir red social + mostrar mensaje
     whatsapp.addEventListener('click', function() {
         mensaje.textContent = ' Abriendo WhatsApp...';
         window.open('https://wa.me/3106353135', '_blank');

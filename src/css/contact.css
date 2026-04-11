@@ -10,7 +10,6 @@ body {
     background-size: cover;    
 }
 
-/* Título */
 .container_title {
     width: 100vw;
     height: 120px;
@@ -21,7 +20,7 @@ body {
     align-items: center;
 }
 
-/*  Barra "Redes Sociales" */
+
 .redes_sociales {
     color: white;
     background-color: grey;
@@ -32,7 +31,7 @@ body {
     font-size: 140%;
 }
 
-/*  Contenedor de iconos  */
+
 .container_redes {
     display: flex;
     flex-direction: row;
@@ -43,7 +42,6 @@ body {
 
 }
 
-/*  Cada ícono con su texto  */
 .container_redes li {
     list-style: none;
     display: inline-flex;
@@ -53,8 +51,6 @@ body {
     margin: 40px 30px;        
 }
 
-/* Círculo alrededor del ícono 
-   Cambia height y width para agrandar o achicar el círculo */
 .icon-circle {
     border-radius: 50%;
     height: 85px;             
@@ -74,8 +70,6 @@ body {
     transition: 0.6s;
 }
 
-/* ── Texto debajo del ícono 
-    Cambia font-size para agrandar o achicar el texto */
 .container_redes li span {
     margin-top: 12px;         
     font-size: 20px;          
@@ -83,19 +77,16 @@ body {
     text-align: center;
 }
 
-/* ── Colores de borde por red social ── */
 .whatsapp  .icon-circle { border: 2px solid white; }
 .instagram .icon-circle { border: 2px solid white; }
 .facebook  .icon-circle { border: 2px solid white; }
 .twitter   .icon-circle { border: 2px solid white; }
 
-/* ── Animación de rotación al hacer hover ── */
 .whatsapp:hover  .icon { transform: rotateY(360deg); }
 .instagram:hover .icon { transform: rotateY(360deg); }
 .facebook:hover  .icon { transform: rotateY(360deg); }
 .twitter:hover   .icon { transform: rotateY(360deg); }
 
-/* ── Brillo de borde al hacer hover ── */
 .whatsapp:hover  .icon-circle { box-shadow: 0px 0px 7px white inset, 0px 0px 7px white; }
 .instagram:hover .icon-circle { box-shadow: 0px 0px 7px white inset, 0px 0px 7px white; }
 .facebook:hover  .icon-circle { box-shadow: 0px 0px 7px white inset, 0px 0px 7px white; }

@@ -1,56 +1,37 @@
-/* ================================================================
-   dashboard.css — Design Furniture
-   Mismo estilo que login.css y register.css:
-   fondo negro, glassmorphism, color dorado, fuente Cormorant.
-================================================================ */
-
-/* Importamos las mismas fuentes que en tus otros archivos */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400&family=Jost:wght@200;300;400&display=swap');
 
-/* Reset básico — igual que en register.css */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* El body usa flexbox para poner sidebar y contenido uno al lado del otro */
 body {
     font-family: 'Jost', sans-serif;
     background-color: #0a0a0a;
     color: #f5f0e8;
-    display: flex;           /* sidebar a la izquierda, main a la derecha */
+    display: flex;          
     min-height: 100vh;
 }
-
-
-/* ================================================================
-   SIDEBAR
-   Barra lateral fija. Siempre visible mientras scrolleas.
-================================================================ */
 
 .sidebar {
     width: 220px;
     min-height: 100vh;
 
-    /* Mismo efecto glassmorphism de tu login */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
 
     border-right: 1px solid rgba(212, 175, 55, 0.25);
 
-    /* Columna vertical: logo arriba, nav en medio, footer abajo */
     display: flex;
     flex-direction: column;
 
-    /* fixed: se queda fijo aunque el contenido haga scroll */
     position: fixed;
     top: 0;
     left: 0;
     padding: 32px 0;
 }
 
-/* Nombre de la app en la parte superior del sidebar */
 .sidebar-logo {
     padding: 0 28px 24px 28px;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -63,14 +44,11 @@ body {
     font-weight: 300;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-
-    /* Mismo dorado que usas en tus h2 de login */
     color: goldenrod;
 }
 
-/* Links del menú de navegación */
 .nav-item {
-    display: block;          /* ocupa todo el ancho del sidebar */
+    display: block;          
     padding: 12px 28px;
     color: #f5f0e8;
     text-decoration: none;
@@ -78,10 +56,8 @@ body {
     font-weight: 300;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-
-    opacity: 0.45;           /* apagado por defecto */
+    opacity: 0.45;           
     border-left: 2px solid transparent;
-
     transition: opacity 0.2s, background 0.2s;
 }
 
@@ -90,17 +66,15 @@ body {
     background: rgba(255, 255, 255, 0.04);
 }
 
-/* El JS agrega la clase "active" al link de la vista actual */
 .nav-item.active {
     opacity: 1;
     color: goldenrod;
-    border-left: 2px solid goldenrod;  /* línea dorada a la izquierda */
+    border-left: 2px solid goldenrod;
     background: rgba(255, 255, 255, 0.04);
 }
 
-/* Parte inferior del sidebar: nombre de usuario y botón de logout */
 .sidebar-footer {
-    margin-top: auto;        /* empuja el footer hasta el fondo */
+    margin-top: auto;       
     padding: 24px 28px 0;
     border-top: 1px solid rgba(212, 175, 55, 0.2);
 }
@@ -112,7 +86,6 @@ body {
     margin-bottom: 12px;
 }
 
-/* Botón cerrar sesión — mismo estilo que tus botones de login */
 .btn-logout {
     width: 100%;
     padding: 8px;
@@ -134,48 +107,23 @@ body {
     border-color: goldenrod;
 }
 
-
-/* ================================================================
-   CONTENIDO PRINCIPAL
-   Todo lo que está a la derecha del sidebar.
-================================================================ */
-
 .contenido {
-    /* margin-left empuja el contenido para que no quede debajo del sidebar fijo */
     margin-left: 220px;
     padding: 48px;
-    flex: 1;                 /* ocupa todo el espacio restante */
+    flex: 1;              
 }
-
-
-/* ================================================================
-   VISTAS (secciones)
-   Esta es la magia de la navegación sin recargar la página.
-
-   Por defecto TODAS están ocultas con display: none.
-   El JS agrega la clase "activa" a la que el usuario quiere ver,
-   y esa sola pasa a display: block.
-================================================================ */
 
 .vista {
     display: none;
 }
 
-/* Solo la vista con clase "activa" se muestra */
 .vista.activa {
     display: block;
 }
 
-/* El formulario de ventas no necesita el toggle, siempre visible */
 .form-box.activo {
     display: block;
 }
-
-
-/* ================================================================
-   TÍTULOS
-   Misma tipografía que tus páginas de login/register.
-================================================================ */
 
 h1 {
     font-family: 'Cormorant Garamond', serif;
@@ -204,13 +152,6 @@ h2 {
     margin-bottom: 24px;
 }
 
-
-/* ================================================================
-   TARJETAS DE RESUMEN (dashboard)
-   3 columnas iguales con los datos clave del negocio.
-================================================================ */
-
-/* grid de 3 columnas del mismo tamaño */
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -218,13 +159,10 @@ h2 {
     margin-bottom: 48px;
 }
 
-/* Cada tarjeta — mismo glassmorphism de login */
 .card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(212, 175, 55, 0.2);
     padding: 28px;
-
-    /* Línea dorada a la izquierda como acento visual */
     border-left: 2px solid goldenrod;
 }
 
@@ -237,7 +175,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* El número grande en dorado — el JS lo actualiza */
 .card-valor {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2rem;
@@ -245,12 +182,6 @@ h2 {
     color: goldenrod;
 }
 
-
-/* ================================================================
-   BOTONES
-================================================================ */
-
-/* Botón principal — mismo estilo que el .btn de home.css */
 .btn-gold {
     background: transparent;
     border: 1px solid goldenrod;
@@ -271,7 +202,6 @@ h2 {
     color: #0a0a0a;
 }
 
-/* Botón eliminar — solo aparece dentro de tablas y tarjetas */
 .btn-eliminar {
     background: transparent;
     border: 1px solid rgba(220, 100, 100, 0.4);
@@ -288,24 +218,14 @@ h2 {
     background: rgba(220, 100, 100, 0.1);
 }
 
-
-/* ================================================================
-   FORMULARIOS
-   Caja que envuelve los campos de productos y ventas.
-================================================================ */
-
-/* La caja del formulario — mismo glassmorphism */
 .form-box {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(212, 175, 55, 0.2);
     padding: 32px;
     margin-bottom: 36px;
-
-    /* Oculto por defecto — el JS lo muestra al clickear "+ Agregar producto" */
     display: none;
 }
 
-/* Los campos dentro del formulario en 2 columnas */
 .form-fila {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -313,7 +233,6 @@ h2 {
     margin-bottom: 24px;
 }
 
-/* Cada campo: etiqueta arriba, input abajo */
 .form-grupo {
     display: flex;
     flex-direction: column;
@@ -328,7 +247,6 @@ h2 {
     opacity: 0.5;
 }
 
-/* Inputs y selects — mismo estilo que en login.css */
 .form-grupo input,
 .form-grupo select {
     background: rgba(255, 255, 255, 0.05);
@@ -343,57 +261,39 @@ h2 {
     transition: border-color 0.2s;
 }
 
-/* Al hacer focus, el borde se vuelve dorado */
 .form-grupo input:focus,
 .form-grupo select:focus {
     border-color: goldenrod;
 }
 
-/* El campo de precio en ventas está bloqueado (el JS lo llena solo) */
 .form-grupo input[readonly] {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* El fondo del select y sus opciones */
 .form-grupo select option {
     background: #1a1a1a;
     color: #f5f0e8;
 }
 
-
-/* ================================================================
-   MENSAJES DE FEEDBACK
-   Aparecen debajo del título del formulario.
-   El JS agrega la clase "error" o "success" para mostrarlos.
-================================================================ */
-
-/* Por defecto invisible */
 .mensaje {
     font-size: 0.78rem;
     padding: 10px 14px;
     margin-bottom: 16px;
-    display: none;           /* oculto hasta que el JS le ponga una clase */
+    display: none;   
 }
 
-/* El JS hace: elemento.className = 'mensaje error' */
 .mensaje.error {
     border: 1px solid rgba(220, 100, 100, 0.5);
     color: rgba(220, 100, 100, 0.9);
-    display: block;          /* aparece */
+    display: block;          
 }
 
-/* El JS hace: elemento.className = 'mensaje success' */
 .mensaje.success {
     border: 1px solid rgba(100, 200, 130, 0.5);
     color: rgba(100, 200, 130, 0.9);
-    display: block;          /* aparece */
+    display: block; 
 }
-
-
-/* ================================================================
-   TOTAL EN FORMULARIO DE VENTAS
-================================================================ */
 
 .total-label {
     font-size: 0.75rem;
@@ -403,7 +303,6 @@ h2 {
     margin-bottom: 24px;
 }
 
-/* El span dentro del total-label muestra el número grande en dorado */
 .total-label span {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.8rem;
@@ -411,12 +310,6 @@ h2 {
     opacity: 1;
 }
 
-
-/* ================================================================
-   TABLA (historial y últimas ventas del dashboard)
-================================================================ */
-
-/* Wrapper con borde dorado y scroll horizontal si la tabla es muy ancha */
 .tabla-wrapper {
     border: 1px solid rgba(212, 175, 55, 0.2);
     overflow-x: auto;
@@ -424,12 +317,11 @@ h2 {
 
 table {
     width: 100%;
-    border-collapse: collapse;  /* elimina el espacio entre celdas */
+    border-collapse: collapse;  
     font-size: 0.82rem;
     font-weight: 300;
 }
 
-/* Encabezado de la tabla */
 thead tr {
     background: rgba(255, 255, 255, 0.04);
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -445,7 +337,6 @@ thead th {
     color: goldenrod;
 }
 
-/* Cada fila del cuerpo */
 tbody tr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     transition: background 0.2s;
@@ -460,7 +351,6 @@ tbody td {
     opacity: 0.75;
 }
 
-/* Mensaje que aparece cuando no hay datos en la tabla */
 .tabla-vacia {
     text-align: center;
     padding: 48px !important;
@@ -470,13 +360,6 @@ tbody td {
     text-transform: uppercase;
 }
 
-
-/* ================================================================
-   GRID DE PRODUCTOS
-   Las tarjetas que muestra el JS cuando hay productos guardados.
-================================================================ */
-
-/* auto-fill: crea tantas columnas como quepan en el ancho disponible */
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -484,7 +367,6 @@ tbody td {
     margin-top: 8px;
 }
 
-/* Cada tarjeta de producto — el JS las crea con createElement */
 .producto-card {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -526,12 +408,6 @@ tbody td {
     margin-bottom: 16px;
 }
 
-
-/* ================================================================
-   PANEL DE IA
-   Donde aparece el texto de análisis generado por Claude.
-================================================================ */
-
 .ia-panel {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -541,8 +417,6 @@ tbody td {
     line-height: 1.9;
     opacity: 0.85;
     min-height: 120px;
-
-    /* pre-wrap: respeta los saltos de línea que manda la IA */
     white-space: pre-wrap;
     margin-top: 8px;
 }
